@@ -1,0 +1,94 @@
+﻿.banner-container img {
+    width: 100%;
+    height: auto;
+}
+
+.content-container {
+    padding: 20px;
+}
+
+/*content*/
+.brand-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+    margin: 20px auto;
+}
+
+.brand-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 10px;
+}
+
+    .brand-content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-family: "Anton SC", sans-serif;
+    }
+
+    .brand-content p {
+        margin-bottom: 10px;
+    }
+
+.image-animation-div {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: 28vw;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-shoes-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+.image-animation-div span {
+    font-size: calc(5.5rem + 4.5vw);
+    padding: 0;
+    position: absolute;
+    bottom: calc(200px - 10vw);
+    color: white;
+    font-family: "Anton SC", serif;
+    font-style: italic;
+    left: -100%;
+    transition: left 0.4s ease;
+    cursor: pointer;
+}
+
+.image-animation-div:hover span {
+    left: 1vw;
+}
+
+.view-button a {
+    background-color: #54a3fe;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    padding: 12px 35px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.view-button {
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .image-animation-div {
+        height: auto;
+    }
+}

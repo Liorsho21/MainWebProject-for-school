@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="MainWebProject.master.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>WAERING STYLE</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="StyleSheet1.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+    <style>
+        /* Styles for navigation buttons */
+        .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-size: calc(14px + 0.2vw);
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+            margin: 0 5px;
+        }
+        
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .delete-button {
+            background-color: #dc3545;
+        }
+        
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+        
+        .footer-user-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer-user-info {
+            margin-bottom: 15px;
+            font-size: calc(16px + 0.2vw);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <div class="logo-container">
+                <a href="../HomePage/WebForm1.aspx"><img src="../images/logo wewb.png" alt="Logo"></a>
+            </div>
+            <ul class="login-container" id="loginContainer" runat="server">
+                <li class="ion">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </li>
+                <li class="log-span">
+                    <span class="username">
+                        <!-- Panel for non-logged in users -->
+                        <asp:Panel ID="pnlGuestUser" runat="server" style="display:inline;">
+                            <a href="../Login/WebForm1.aspx">Log-in</a> / <a href="../SignUp/WebForm1.aspx">Sign-up</a>
+                        </asp:Panel>
+                        
+                        <!-- Panel for logged in users -->
+                        <asp:Panel ID="pnlLoggedInUser" runat="server" Visible="false" style="display:inline;">
+                            <asp:Label ID="lblWelcome" runat="server" Text="Welcome, "></asp:Label>
+                            <asp:Label ID="lblUsername" runat="server"></asp:Label>
+                        </asp:Panel>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            <div class="main-footer">
+                <div class="footer-icon">
+                    <img class="footer-logo" src="/images/logo icon.png" alt="logo">
+                    <h1>WEARING STYLE</h1>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="https://discord.gg/EDFbDHsDbw" target="_blank"><ion-icon name="logo-discord"></ion-icon></a></li>
+                        <li><a href="https://www.youtube.com/@MrBeast" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                        <li><a><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="https://github.com/" target="_blank"><ion-icon name="logo-github"></ion-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- User account section in footer -->
+            <asp:Panel ID="pnlFooterUserSection" runat="server" Visible="false" CssClass="footer-user-section">
+                <div class="footer-user-info">
+                    <asp:Label ID="lblFooterUserInfo" runat="server" Text="Account: "></asp:Label>
+                    <asp:Label ID="lblFooterUsername" runat="server" Font-Bold="true"></asp:Label>
+                </div>
+                <div>
+                    <asp:Button ID="btn_logOff" runat="server" Text="Log out" OnClick="btn_logOff_Click" CssClass="nav-button" />
+                    <asp:Button ID="btn_deleteAccount" runat="server" Text="Delete Account" 
+                        OnClick="btn_deleteAccount_Click" 
+                        OnClientClick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');"
+                        CssClass="nav-button delete-button" />
+                </div>
+            </asp:Panel>
+            
+            <span class="copy-write">&copy; Copyright 1999 - 2024</span>
+        </footer>
+    </form>
+</body>
+</html>
